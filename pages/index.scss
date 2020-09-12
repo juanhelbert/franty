@@ -22,7 +22,8 @@ body {
 
 .block {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px 0;
 }
 
 [class*="item-parallax"] {
@@ -42,6 +43,14 @@ body {
 }
 .item-parallax-content {
   z-index: 2;
+}
+
+.proyects-grid {
+  margin: 140px 0;
+
+  figure.parallax-outer {
+    margin: 100px 0;
+  }
 }
 
 $boxes: 5;
@@ -90,6 +99,15 @@ html {
 }
 .centered-content {
   margin: auto;
+}
+.parallax-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0000004d;
 }
 
 .head-large {
@@ -143,34 +161,11 @@ html {
     height: 120%;
     object-fit: cover;
   }
-
-  &:before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    background-color: #0000004d;
-  }
 }
 
 // ------------ landing
 .section-landing .item-parallax-media {
   opacity: calc(1 - (var(--y) * 0.0009));
-}
-
-// ---------------- intro
-.section-intro:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 80%;
-  background-color: mix($light, $dark, 4%);
-  transform: translateX(-50%) translateY(-50%) rotate(calc((var(--y) * 0.1deg)));
-  will-change: transform;
-  backface-visibility: visible;
 }
 
 // ------------------ image grid
@@ -245,8 +240,55 @@ html {
   }
 }
 
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px;
+  margin: 8vh 0;
+
+  input,
+  textarea {
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 3px;
+    background-color: #ffffffe6;
+    font-size: 16px;
+    resize: none;
+  }
+
+  button {
+    border-radius: 3px;
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    color: white;
+    background-color: #001720;
+    border: 1px solid #fff;
+    &:hover,
+    &:focus {
+      color: #001720;
+      background-color: #fff;
+      border: 1px solid transparent;
+      opacity: 0.9;
+    }
+  }
+}
+
 @media only screen and (max-width: 576px) {
   .head-large {
     font-size: 18vw;
+  }
+
+  .section-intro {
+    padding-bottom: 90px;
   }
 }
