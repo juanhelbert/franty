@@ -1,188 +1,142 @@
+import React, { useEffect } from 'react'
 import Head from 'next/head'
+import './index.scss'
 
 export default function Home() {
+
+  useEffect(() => {
+    const body = document.body;
+    const content = document.querySelector('.js-content');
+    const blocks = document.querySelectorAll('.block');
+
+    const updateOffset = () => {
+      requestAnimationFrame(updateOffset);
+      body.style.setProperty('--y', content.scrollTop);
+      updateProps();
+    }
+
+    const updateProps = () => {
+      let i = -1;
+      for (let block of blocks) {
+        i += 1;
+        let top = blocks[i].getBoundingClientRect().top;
+        if (top < window.innerHeight * 1.3 && top > window.innerHeight * -1.3) {
+          body.style.setProperty(`--yBlock-${i + 1}`, top);
+        } else {
+          body.style.setProperty(`--yBlock-${i + 1}`, 0);
+        }
+      }
+    }
+
+    updateProps();
+    updateOffset();
+  }, [])
+
+
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Franty</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <main class="content js-content">
+        <section class="block section-landing">
+          <figure class="item-parallax-media">
+            <img src="/images/home-intro.jpg" alt="Imagen intro" />
+          </figure>
+          <div class="item-parallax-content flex-container">
+            <div class="landing-content centered-content">
+              <h1 class="head-large">Franty</h1>
+            </div>
+          </div>
+        </section>
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
+        <section class="block section-intro">
+          <div class="item-parallax-content flex-container">
+            <div class="centered-content">
+              <h2 class="head-small head-centered">Nuestra historia</h2>
+              <p class="copy copy-white">
+                Nuestra formación profesional como arquitectos, ha marcado una línea de acción que resuelve la dualidad diseño obra manteniendo el equilibrio indispensable entre ellos.
+              </p>
+              <p class="copy copy-white">
+                La experiencia adquirida durante años de intensa tarea proyectual y constructiva, permite generar proyectos contundentes y simples, que dan como resultado obras económicas y de plazos acotados.
+              </p>
+              <p class="copy copy-white">
+                Convencidos de que el Diseño es una cualidad relevante para nuestros clientes, Fundar dedica especial atención a la elaboración del Proyecto en todos sus detalles contando para ello con equipos de profesionales y recursos tecnológicos en permanente capacitación y actualización. La demanda plantea hoy diversas temáticas y Fundar las satisface con criterios de excelencia.
+              </p>
+            </div>
+          </div>
+        </section>
 
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <section class="block section-part">
+          <figure class="item-parallax-media">
+            <img src="/images/nuestros-proyectos.jpg" alt="Nuestros proyectos" />
+          </figure>
+          <div class="item-parallax-content flex-container">
+            <div class="centered-content">
+              <h1 class="head-large head-centered">Nuestros <br />proyectos</h1>
+              {/* <p class="copy copy-white">
+                One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.
+              </p> */}
+            </div>
+          </div>
+        </section>
 
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+        <section class="block proyects-grid">
+          <div class="item-parallax-content flex-container img-grid">
+            <figure class="img-gridItem type-right">
+              <img src="/images/proyecto-1.jpg" alt="Free Soul" />
+              <figcaption class="img-caption">
+                <h2 class="head-small">Free Soul</h2>
+                <p class="copy copy-white">
+                  Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.
+                </p>
+              </figcaption>
+            </figure>
+            <figure class="img-gridItem type-left">
+              <img src="/images/proyecto-2.jpg" alt="Free Mind" />
+              <figcaption class="img-caption">
+                <h2 class="head-small">Free Mind</h2>
+                <p class="copy copy-white">
+                  A peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music, or a noble picture, or a passage from the grander poets.
+                </p>
+              </figcaption>
+            </figure>
+            <figure class="img-gridItem type-right">
+              <img src="/images/proyecto-3.jpg" alt="Free Air" />
+              <figcaption class="img-caption">
+                <h2 class="head-small">Free Air</h2>
+                <p class="copy copy-white">
+                  Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
 
-          <a
-            href="https://github.com/zeit/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+        <section class="block section-end">
+          <figure class="item-parallax-media">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/noah-silliman-141979.jpg" alt="" />
+          </figure>
+          <div class="item-parallax-content flex-container">
+            <div class="landing-content centered-content">
+              <h1 class="head-large">Back to Basic</h1>
+            </div>
+          </div>
+        </section>
 
-          <a
-            href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with ZEIT Now.
-            </p>
-          </a>
-        </div>
+        <section class="custom-properties-ftw">
+          <h3 class="head-small head-centered">Aca van las redes sociales</h3>
+        </section>
       </main>
 
       <footer>
-        <a
-          href="https://zeit.co?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <img src="/zeit.svg" alt="ZEIT Logo" />
-        </a>
       </footer>
 
       <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
+        
 
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
       `}</style>
 
       <style jsx global>{`
