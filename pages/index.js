@@ -1,40 +1,21 @@
-import React, { useState } from 'react'
-import { ParallaxProvider, ParallaxBanner, Parallax } from 'react-scroll-parallax'
-import Head from 'next/head'
 import './index.scss'
-
-const NUMERO_DE_TELEFONO = '5493364274904'
+import React from 'react'
+import Head from 'next/head'
+import { ContactForm } from '../components/ContactForm'
+import { Footer } from '../components/Footer'
+import { ParallaxProvider, ParallaxBanner, Parallax } from 'react-scroll-parallax'
 
 export default function Home() {
-  const [userInfo, setUserInfo] = useState({})
-
-  const handleChange = e => {
-    const name = e.target.name
-    const value = e.target.value
-    setUserInfo({ ...userInfo, [name]: value })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    const formatedText = `
-    *Nombre*: ${(userInfo.name || '').replace(' ', '%20')}
-    %0A*Email*: ${(userInfo.email || '').replace(' ', '%20')}
-    %0A*Mensaje*: ${(userInfo.content || '').replace(' ', '%20')}
-    `
-    window.open(`https://wa.me/${NUMERO_DE_TELEFONO}?text=${formatedText}`)
-  }
-
   return (
     <ParallaxProvider>
-      <div className='container'>
-        <Head>
-          <title>Franty</title>
-          <link rel='icon' href='/favicon.ico' />
-        </Head>
+      <Head>
+        <title>Franty</title>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
 
+      <div className='container'>
         <main className='content js-content'>
-          <section class='block section-landing' style={{ paddingTop: 0 }}>
+          <section className='block section-landing' style={{ paddingTop: 0 }}>
             <ParallaxBanner
               style={{ height: '100vh' }}
               layers={[{
@@ -109,7 +90,7 @@ export default function Home() {
                     <h2 className="head-small">Free Air</h2>
                     <p className="copy copy-white">
                       Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.
-                </p>
+                    </p>
                   </figcaption>
                 </figure>
               </Parallax>
@@ -126,49 +107,13 @@ export default function Home() {
             <h3 className="head-large parallax-text">Contacto</h3>
           </ParallaxBanner>
 
-          <section className='contact-form'>
-            <div className='flex-container'>
-              <div className='centered-content'>
-                <form onSubmit={handleSubmit}>
-                  <input
-                    required
-                    name='name'
-                    type='text'
-                    placeholder='Nombre'
-                    value={userInfo.name}
-                    onChange={e => handleChange(e)}
-                  />
+          <Parallax y={[-10, 10]} >
+            <ContactForm />
+          </Parallax>
 
-                  <input
-                    required
-                    name='email'
-                    type='email'
-                    placeholder='Email'
-                    value={userInfo.email}
-                    onChange={e => handleChange(e)}
-                  />
-
-                  <textarea
-                    required
-                    type='text'
-                    name='content'
-                    placeholder='Mensaje'
-                    onChange={e => handleChange(e)}
-                  />
-
-                  <button type='submit'>Enviar</button>
-                </form>
-              </div>
-            </div>
-          </section>
-
-          <section className='custom-properties-ftw'>
-            <h3 className='head-small head-centered'>Contacto</h3>
-          </section>
         </main>
 
-        <footer>
-        </footer>
+        <Footer />
 
       </div>
     </ParallaxProvider >
