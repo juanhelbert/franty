@@ -289,3 +289,17 @@ footer {
     padding-bottom: 90px;
   }
 }
+
+header{
+  display: flex;
+  justify-content: space-between;
+  .head-links{
+    color: white;
+    ul {
+      display: flex;
+    }
+  }
+  .head-logo img{
+      width: 130px;
+  }
+}

@@ -3,6 +3,7 @@ import React from 'react'
 import Head from 'next/head'
 import { ContactForm } from '../components/ContactForm'
 import { Footer } from '../components/Footer'
+import { Header } from '../components/Header'
 import { ParallaxProvider, ParallaxBanner, Parallax } from 'react-scroll-parallax'
 
 export default function Home() {
@@ -15,6 +16,8 @@ export default function Home() {
 
       <div className='container'>
         <main className='content js-content'>
+          <Header />
+
           <section className='block section-landing' style={{ paddingTop: 0 }}>
             <ParallaxBanner
               style={{ height: '100vh' }}
