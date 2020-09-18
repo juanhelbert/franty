@@ -1,11 +1,26 @@
 import './index.scss'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { ContactForm } from '../components/ContactForm'
 import { Footer } from '../components/Footer'
+import { ContactForm } from '../components/ContactForm'
 import { ParallaxProvider, ParallaxBanner, Parallax } from 'react-scroll-parallax'
+import { fetchEntries } from '../services/getData'
+
 
 export default function Home() {
+  const [introduction, setIntroduction] = useState()
+  const [projects, setProjects] = useState()
+
+  const getIntroduction = async () => setIntroduction(await fetchEntries('introduccion'))
+  const getProjects = async () => setProjects(await fetchEntries('proyecto'))
+
+  useEffect(() => {
+    getIntroduction()
+    getProjects()
+  }, [])
+
+  console.log({ introduction, projects })
+
   return (
     <ParallaxProvider>
       <Head>
