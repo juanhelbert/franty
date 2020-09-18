@@ -8,9 +8,9 @@ export const Header = () => {
           </div>
           <nav className='head-links'>
             <ul>
-              <li><a href="#">Nuestros Proyectos</a></li>
+              <li><a href="#proyects">Nuestros Proyectos</a></li>
               <li><a href="#">Formularios</a></li>
-              <li><a href="#">Contacto</a></li>
+              <li><a href="#contact">Contacto</a></li>
             </ul>            
           </nav>
         

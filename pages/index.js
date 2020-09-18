@@ -49,56 +49,58 @@ export default function Home() {
               </div>
             </div>
           </section>
+              
+            <div id='proyects'>        
+              <ParallaxBanner
+                layers={[{
+                  image: '/images/nuestros-proyectos.jpg',
+                  amount: 0.5,
+                }]}
+                style={{ height: '100vh' }}
+              >
+                <h2 className='head-large parallax-text'>Nuestros <br />proyectos</h2>
+              </ParallaxBanner>
 
-          <ParallaxBanner
-            layers={[{
-              image: '/images/nuestros-proyectos.jpg',
-              amount: 0.5,
-            }]}
-            style={{ height: '100vh' }}
-          >
-            <h2 className='head-large parallax-text'>Nuestros <br />proyectos</h2>
-          </ParallaxBanner>
+              <section className='block proyects-grid'>
+                <div className='item-parallax-content flex-container img-grid'>
+                  <Parallax x={[-15, 5]} y={[40, 0]} tagOuter='figure'>
+                    <figure className='img-gridItem type-right'>
+                      <img src='/images/proyecto-1.jpg' alt='Free Soul' />
+                      <figcaption className='img-caption'>
+                        <h2 className='head-small'>Free Soul</h2>
+                        <p className='copy copy-white'>
+                          Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.
+                      </p>
+                      </figcaption>
+                    </figure>
+                  </Parallax>
 
-          <section className='block proyects-grid'>
-            <div className='item-parallax-content flex-container img-grid'>
-              <Parallax x={[-15, 5]} y={[40, 0]} tagOuter='figure'>
-                <figure className='img-gridItem type-right'>
-                  <img src='/images/proyecto-1.jpg' alt='Free Soul' />
-                  <figcaption className='img-caption'>
-                    <h2 className='head-small'>Free Soul</h2>
-                    <p className='copy copy-white'>
-                      Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.
-                  </p>
-                  </figcaption>
-                </figure>
-              </Parallax>
-
-              <Parallax x={[15, -5]} y={[40, 0]} tagOuter='figure'>
-                <figure className='img-gridItem type-left'>
-                  <img src='/images/proyecto-2.jpg' alt='Free Mind' />
-                  <figcaption className='img-caption'>
-                    <h2 className='head-small'>Free Mind</h2>
-                    <p className='copy copy-white'>
-                      A peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music, or a noble picture, or a passage from the grander poets.
-                </p>
-                  </figcaption>
-                </figure>
-              </Parallax>
-
-              <Parallax x={[-15, 5]} y={[40, 0]} tagOuter='figure'>
-                <figure className='img-gridItem type-right'>
-                  <img src='/images/proyecto-3.jpg' alt="Free Air" />
-                  <figcaption className="img-caption">
-                    <h2 className="head-small">Free Air</h2>
-                    <p className="copy copy-white">
-                      Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.
+                  <Parallax x={[15, -5]} y={[40, 0]} tagOuter='figure'>
+                    <figure className='img-gridItem type-left'>
+                      <img src='/images/proyecto-2.jpg' alt='Free Mind' />
+                      <figcaption className='img-caption'>
+                        <h2 className='head-small'>Free Mind</h2>
+                        <p className='copy copy-white'>
+                          A peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music, or a noble picture, or a passage from the grander poets.
                     </p>
-                  </figcaption>
-                </figure>
-              </Parallax>
-            </div>
-          </section>
+                      </figcaption>
+                    </figure>
+                  </Parallax>
+
+                  <Parallax x={[-15, 5]} y={[40, 0]} tagOuter='figure'>
+                    <figure className='img-gridItem type-right'>
+                      <img src='/images/proyecto-3.jpg' alt="Free Air" />
+                      <figcaption className="img-caption">
+                        <h2 className="head-small">Free Air</h2>
+                        <p className="copy copy-white">
+                          Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.
+                        </p>
+                      </figcaption>
+                    </figure>
+                  </Parallax>
+                </div>
+              </section>
+          </div>
 
           <ParallaxBanner
             layers={[{
@@ -107,7 +109,7 @@ export default function Home() {
             }]}
             style={{ height: '35vh', marginTop: '50vh' }}
           >
-            <h3 className="head-large parallax-text">Contacto</h3>
+            <h3 id='contact' className="head-large parallax-text">Contacto</h3>
           </ParallaxBanner>
 
           <Parallax y={[-10, 10]} >

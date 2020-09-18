@@ -297,9 +297,47 @@ header{
     color: white;
     ul {
       display: flex;
+      align-items: center;
+      min-height: 100%;
+      list-style-type: none;
+      li{
+        padding: 15px;
+        a {
+          text-decoration: none;
+          color: white;
+      }
+      }
+      li:nth-child(3) {
+        max-height: 35px;
+        align-items: center;
+        border-radius: 2em;
+        margin-right: 15px;
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #705bc6;
+    border-radius: 0.6em;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    text-decoration: none;
+    text-align: center;
+    border-color:#705bc6;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #705bc6 inset, 0 0 0 0 #705bc6;
+    transition: all 150ms ease-in-out;
+   
+    &:hover {
+      box-shadow: 0 0 10px 0 #705bc6 inset, 0 0 10px 4px #705bc6;
     }
+    }
+
+    }
+    
   }
+
+
   .head-logo img{
-      width: 130px;
+      width: 230px;
   }
 }
