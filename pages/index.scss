@@ -307,28 +307,31 @@ header{
           color: white;
       }
       }
-      li:nth-child(3) {
+      .contact{
         max-height: 35px;
         align-items: center;
-        border-radius: 2em;
         margin-right: 15px;
-    box-sizing: border-box;
-    appearance: none;
-    background-color: transparent;
-    border: 2px solid #705bc6;
-    border-radius: 0.6em;
-    cursor: pointer;
-    display: flex;
-    align-self: center;
-    text-decoration: none;
-    text-align: center;
-    border-color:#705bc6;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #705bc6 inset, 0 0 0 0 #705bc6;
-    transition: all 150ms ease-in-out;
+        background-color: #001720;
+        border: 2px solid #fff;
+        border-radius: 0.6em;
+        cursor: pointer;
+        display: flex;
+        align-self: center;
+        text-decoration: none;
+        text-align: center;
+        border-color:#fff;
+        color: #fff;
+        transition: 150ms ease-in-out;
+        a {
+          text-decoration: none;
+          color: #fff;
+      }
    
     &:hover {
-      box-shadow: 0 0 10px 0 #705bc6 inset, 0 0 10px 4px #705bc6;
+      background: #fff;
+      a{
+        color:#001720;
+      }
     }
     }
 

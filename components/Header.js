@@ -10,7 +10,7 @@ export const Header = () => {
             <ul>
               <li><a href="#proyects">Nuestros Proyectos</a></li>
               <li><a href="#">Formularios</a></li>
-              <li><a href="#contact">Contacto</a></li>
+              <li className="contact"><a href="#contact">Contacto</a></li>
             </ul>            
           </nav>
         
