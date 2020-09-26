@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 export const Header = () => {
     return (
@@ -8,8 +9,8 @@ export const Header = () => {
           </div>
           <nav className='head-links'>
             <ul>
-              <li><a href="#proyects">Nuestros Proyectos</a></li>
-              <li><a href="#">Formularios</a></li>
+              <li><a href="#projects">Nuestros Proyectos</a></li>
+              <li><Link href="/forms"><a>Formularios</a></Link></li>
               <li className="contact"><a href="#contact">Contacto</a></li>
             </ul>            
           </nav>

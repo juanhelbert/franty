@@ -23,7 +23,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <section className='contact-form'>
+    <section id='contact' className='contact-form'>
       <div className='flex-container'>
         <div className='centered-content'>
           <form onSubmit={handleSubmit}>
