@@ -3,51 +3,41 @@ import { fetchEntries } from '../services/getData'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
+const options = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <p className='copy copy-white'>{children}</p>
+  }
+}
+
+const Project = ({ data, idx }) => {
+  const { fields } = data || {}
+  const { titulo, descripcion, imagen, show } = fields || {}
+  const isOdd = idx % 2
+
+  if (!show) return null
+
+  return (
+    <figure className={`img-gridItem type-${isOdd ? 'left' : 'right'}`}>
+      <img src={imagen[0].fields.file.url} alt={titulo} />
+      <figcaption className='img-caption'>
+        <h2 className='head-small'>{titulo}</h2>
+        {documentToReactComponents(descripcion, options)}
+      </figcaption>
+    </figure>
+  )
+}
+
 export const Projects = () => {
   const [projects, setProjects] = useState([])
   const getProjects = async () => setProjects(await fetchEntries('proyecto'))
   useEffect(() => { getProjects() }, [])
 
-  console.log({ projects })
-
-  const options = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <p className='copy copy-white'>{children}</p>
-    }
-  }
+  const sortedProjects = (projects || []).sort((a, b) => (a.fields.orden > b.fields.orden) ? 1 : ((b.fields.orden > a.fields.orden) ? -1 : 0))
 
   return (
     <section id='projects' className='block proyects-grid'>
       <div className='item-parallax-content flex-container img-grid'>
-        <figure className='img-gridItem type-right'>
-          <img src='/images/proyecto-1.jpg' alt='Free Soul' />
-          <figcaption className='img-caption'>
-            <h2 className='head-small'>Free Soul</h2>
-            <p className='copy copy-white'>
-              Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.
-              </p>
-          </figcaption>
-        </figure>
-
-        <figure className='img-gridItem type-left'>
-          <img src='/images/proyecto-2.jpg' alt='Free Mind' />
-          <figcaption className='img-caption'>
-            <h2 className='head-small'>Free Mind</h2>
-            <p className='copy copy-white'>
-              A peep at some distant orb has power to raise and purify our thoughts like a strain of sacred music, or a noble picture, or a passage from the grander poets.
-              </p>
-          </figcaption>
-        </figure>
-
-        <figure className='img-gridItem type-right'>
-          <img src='/images/proyecto-3.jpg' alt="Free Air" />
-          <figcaption className="img-caption">
-            <h2 className="head-small">Free Air</h2>
-            <p className="copy copy-white">
-              Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle.
-              </p>
-          </figcaption>
-        </figure>
+        {(sortedProjects || []).map((item, idx) => <Project data={item} idx={idx} />)}
       </div>
     </section>
   )

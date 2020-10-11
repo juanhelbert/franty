@@ -3,6 +3,12 @@ import { fetchEntries } from '../services/getData'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
+const options = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <p className='copy copy-white'>{children}</p>
+  }
+}
+
 export const Introduction = () => {
   const [introduction, setIntroduction] = useState([])
   const getIntroduction = async () => setIntroduction(await fetchEntries('introduccion'))
@@ -10,12 +16,6 @@ export const Introduction = () => {
 
   const { fields } = introduction[0] || {}
   const { titulo, contenido } = fields || {}
-
-  const options = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <p className='copy copy-white'>{children}</p>
-    }
-  }
 
   return (
     <section className='block section-intro'>
