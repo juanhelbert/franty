@@ -7,7 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 export const Introduction = () => {
   const [introduction, setIntroduction] = useState([])
   const getIntroduction = async () => setIntroduction(await fetchEntries('introduccion'))
-  useEffect(() => getIntroduction(), [])
+  useEffect(() => { getIntroduction() }, [])
 
   const { fields } = introduction[0] || {}
   const { titulo, contenido } = fields || {}

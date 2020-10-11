@@ -7,7 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 export const Projects = () => {
   const [projects, setProjects] = useState([])
   const getProjects = async () => setProjects(await fetchEntries('proyecto'))
-  useEffect(() => getProjects(), [])
+  useEffect(() => { getProjects() }, [])
 
   console.log({ projects })
 
