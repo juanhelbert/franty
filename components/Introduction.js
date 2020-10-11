@@ -19,7 +19,7 @@ export const Introduction = () => {
 
   return (
     <section className='block section-intro'>
-      <div className='flex-container'>
+      <div className='flex-container' style={{ minHeight: '100vh' }}>
         <div className='centered-content'>
           {titulo && contenido &&
             <>

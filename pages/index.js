@@ -35,7 +35,7 @@ export default function Home() {
 
           <Projects />
 
-          <ParallaxBanner layers={[{ image: '/images/contacto.jpg', amount: 0.5 }]} style={{ height: '35vh', marginTop: '50vh' }} >
+          <ParallaxBanner layers={[{ image: '/images/contacto.jpg', amount: 0.5 }]} style={{ height: '35vh', marginTop: '15vh' }} >
             <h3 className="head-large parallax-text">Contacto</h3>
           </ParallaxBanner>
 

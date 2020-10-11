@@ -48,7 +48,7 @@ body {
 }
 
 .proyects-grid {
-  margin: 140px 0;
+  margin: 80px 0;
 
   figure.parallax-outer {
     margin: 100px 0;
@@ -180,8 +180,7 @@ html {
   position: relative;
   width: 100%;
   max-width: 800px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 40px auto;
 
   img {
     display: block;
@@ -230,7 +229,7 @@ html {
 }
 
 .proyects-grid {
-  min-height: 150vh;
+  min-height: 100vh;
 }
 
 form {
@@ -292,25 +291,26 @@ footer {
   }
 }
 
-header{
+a {
+  text-decoration: none;
+  color: white;
+}
+
+header {
   display: flex;
   justify-content: space-between;
-  .head-links{
+  .head-links {
     color: white;
     ul {
       display: flex;
       align-items: center;
       min-height: 100%;
       list-style-type: none;
-      li{
+      li {
         padding: 15px;
         margin-left: 12px;
-        a {
-          text-decoration: none;
-          color: white;
       }
-      }
-      .contact{
+      .contact {
         max-height: 35px;
         align-items: center;
         margin-right: 15px;
@@ -322,28 +322,25 @@ header{
         align-self: center;
         text-decoration: none;
         text-align: center;
-        border-color:#fff;
+        border-color: #fff;
         color: #fff;
         transition: 150ms ease-in-out;
         a {
           text-decoration: none;
           color: #fff;
-      }
-   
-    &:hover {
-      background: #fff;
-      a{
-        color:#001720;
-      }
-    }
-    }
+        }
 
+        &:hover {
+          background: #fff;
+          a {
+            color: #001720;
+          }
+        }
+      }
     }
-    
   }
 
-
-  .head-logo img{
-      width: 230px;
+  .head-logo img {
+    width: 230px;
   }
 }

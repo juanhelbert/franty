@@ -36,7 +36,7 @@ export const Projects = () => {
 
   return (
     <section id='projects' className='block proyects-grid'>
-      <div className='item-parallax-content flex-container img-grid'>
+      <div className='flex-container img-grid'>
         {(sortedProjects || []).map((item, idx) => <Project data={item} idx={idx} />)}
       </div>
     </section>
