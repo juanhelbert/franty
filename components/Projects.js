@@ -18,7 +18,7 @@ export const Projects = () => {
   }
 
   return (
-    <section className='block proyects-grid'>
+    <section id='projects' className='block proyects-grid'>
       <div className='item-parallax-content flex-container img-grid'>
         <Parallax x={[-15, 5]} y={[40, 0]} tagOuter='figure'>
           <figure className='img-gridItem type-right'>

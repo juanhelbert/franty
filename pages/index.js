@@ -2,6 +2,7 @@ import './index.scss'
 import React from 'react'
 import Head from 'next/head'
 import { Footer } from '../components/Footer'
+import { Header } from '../components/Header'
 import { ContactForm } from '../components/ContactForm'
 import { ParallaxProvider, ParallaxBanner, Parallax } from 'react-scroll-parallax'
 import { Introduction } from '../components/Introduction'
@@ -17,12 +18,14 @@ export default function Home() {
 
       <div className='container'>
         <main className='content js-content'>
+          <Header />
 
           <section className='block section-landing' style={{ paddingTop: 0 }}>
             <ParallaxBanner style={{ height: '100vh' }} layers={[{ image: '/images/home-intro.jpg', amount: 0.5 }]}>
               <h1 className='head-large parallax-text'>Franty</h1>
             </ParallaxBanner>
           </section>
+
 
           <Introduction />
 
