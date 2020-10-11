@@ -18,6 +18,7 @@ export default function Home() {
 
       <div className='container'>
         <main className='content js-content'>
+
           <Header />
 
           <section className='block section-landing' style={{ paddingTop: 0 }}>
@@ -25,7 +26,6 @@ export default function Home() {
               <h1 className='head-large parallax-text'>Franty</h1>
             </ParallaxBanner>
           </section>
-
 
           <Introduction />
 
@@ -39,9 +39,7 @@ export default function Home() {
             <h3 className="head-large parallax-text">Contacto</h3>
           </ParallaxBanner>
 
-          <Parallax y={[-10, 10]} >
-            <ContactForm />
-          </Parallax>
+          <ContactForm />
 
         </main>
 

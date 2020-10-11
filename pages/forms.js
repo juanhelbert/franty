@@ -1,5 +1,5 @@
 import React from 'react'
-import { ParallaxProvider, ParallaxBanner, Parallax } from 'react-scroll-parallax'
+import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax'
 import Head from 'next/head'
 import './index.scss'
 
