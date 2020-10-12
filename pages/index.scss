@@ -291,6 +291,10 @@ footer {
   }
 }
 
+.burger-menu {
+  display: none;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -299,7 +303,7 @@ a {
 header {
   display: flex;
   justify-content: space-between;
-  .head-links {
+  .head-links-desktop {
     color: white;
     ul {
       display: flex;
@@ -343,4 +347,34 @@ header {
   .head-logo img {
     width: 230px;
   }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      max-width: 576px;
+    }
+  
+    .burger-menu {
+      display: block;
+    }
+  
+    nav ul {
+      width: auto;
+    }
+  
+    .head-links-desktop{
+      display: none;
+    }
+    
+    i.fa.fa-bars {
+      padding-right: 20px;
+  }
+
+}
+    .nav-test{
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
+
 }
